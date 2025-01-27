@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Квадратное уравнение</title>
+    <title>Circle Area</title>
 </head>
 <body>
+    <h1>Рассчитать площадь круга</h1>
+    <p>Введите радиус: <input type="number" id="radius" value="5"></p>
+    <button onclick="calculateArea()">Рассчитать</button>
+    <p>Площадь: <span id="result"></span></p>
+
     <script>
-        // Запросить коэффициенты a, b и c
-        let a = parseFloat(prompt("Введите коэффициент a:"));
-        let b = parseFloat(prompt("Введите коэффициент b:"));
-        let c = parseFloat(prompt("Введите коэффициент c:"));
+        function circleArea(radius) {
+            const pi = Math.PI;
+            return pi * Math.pow(radius, 2);
+        }
 
-        // Рассчитываем дискриминант
-        let discr = b * b - 4 * a * c;
-
-        // Выводим дискриминант
-        alert("Дискриминант D = " + discr.toString());
+        function calculateArea() {
+            const radius = document.getElementById('radius').value;
+            const area = circleArea(radius);
+            document.getElementById('result').textContent = area.toFixed(2);
+        }
     </script>
 </body>
 </html>
